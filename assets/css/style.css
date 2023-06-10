@@ -1,0 +1,14 @@
+/* Global selector (only used for seeing boxes) */
+/* * {
+    outline: 1px red dashed;
+} */
+
+.hero {
+    padding: 5px 2px;
+}
+
+.title {
+    text-shadow: 2px 2px 2px black;
+}
+
+
