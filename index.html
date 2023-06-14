@@ -20,26 +20,40 @@
           </p>
         </div>
     </section>
-
-      <!--Search section-->
-      <div class="field">
-        <label class="label">Search by breed:</label>
-        <div class="field has-addons">
-            <div class="control">
-              <input class="input" type="text" placeholder="Search Poodle, etc.">
-            </div>
-            <div class="control">
-              <a class="button is-info">
-                Search
-              </a>
-            </div>
+    <!--Search Section-->
+    <section class="section">
+      <div class="container">
+          <div class="columns">
+              <div class="column is-4">
+    <!--Search Box-->
+    <div class="notification has-background-info is-size-3">
+      <form id="search-form">
+          <label class="label">Search by breed:</label>
+          <div class="field has-addons">
+              <div class="control">
+                  <input class="input" type="text" placeholder="Search Poodle, etc." id="search-field">
+              </div>
+              <div class="control">
+                  <a class="button is-info" id="search-button">Search</a>
+              </div>
           </div>
-    <section>      
-        <form>
-            <label for="dogcategory">Previously Searched:</label>   
-        </form>
-    </section>
+      </form>
+  </div>
+  <!--Search history-->
+  <div class="notification has-background-link-light" id="search-history">
+    <label class="label">Previously Searched:</label>
+    <ul id="Previously-Searched">
+    </ul>
+  </div>
+  <section class="section">
+    <div class="container">
+    <div class="columns">
+      <div class="column is-4 is-offset-8">
         <img src="image.png" alt="image of dogs smiling" width="500" height="333">
+      </div>
+    </div>
+  </div>
+  </section>
 
     <script src= "./assets/js/script.js"></script>
 </body>
