@@ -25,20 +25,23 @@
       <label class="label">Search by breed:</label>
       <div class="field has-addons">
         <div class="control">
-          <input class="input" type="text" placeholder="Search Poodle, etc." />
+          <input class="input" type="text" placeholder="Search Poodle, etc." id="breedNameInput"/>
         </div>
         <div class="control">
-          <a class="button is-info"> Search </a>
+          <a class="button is-info" id="searchButton"> Search </a>
         </div>
       </div>
     </div>
-
+    <div>
+      <h2 id="breedName"></h2>
+      <img id="dogImage" src="" alt="Dog Image" />
+      <p id="breedInfo"></p>
+    </div> 
     <section>
       <form>
         <label for="dogcategory">Previously Searched:</label>
       </form>
     </section>
-
     <section>
       <figure>
         <img
@@ -50,7 +53,7 @@
         <figcaption>Find your new friend today!</figcaption>
       </figure>
     </section>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
