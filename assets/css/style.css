@@ -5,6 +5,7 @@
 
 .hero {
     padding: 5px 2px;
+    align-items: stretch;
 }
 
 .title {

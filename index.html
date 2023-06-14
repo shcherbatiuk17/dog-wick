@@ -14,46 +14,51 @@
   <body>
     <!--Top of page section-->
     <section class="hero is-small is-info">
-      <div class="hero-body">
-        <p class="title">Dog Wick</p>
-        <p class="subtitle">Find your new best friend!</p>
-      </div>
+        <div class="hero-body">
+          <h1 class="title">
+            Dog Wick
+          </h1>
+          <p class="subtitle">
+            Find your new best friend!
+          </p>
+        </div>
     </section>
+    <!--Search Section-->
+    <section class="section">
+      <div class="container">
+          <div class="columns">
+              <div class="column is-4">
+    <!--Search Box-->
+    <div class="notification has-background-info is-size-3">
+      <form id="search-form">
+          <label class="label">Search by breed:</label>
+          <div class="field has-addons">
+              <div class="control">
+                  <input class="input" type="text" placeholder="Search Poodle, etc." id="search-field">
+              </div>
+              <div class="control">
+                  <a class="button is-info" id="search-button">Search</a>
+              </div>
+          </div>
+      </form>
+  </div>
+  <!--Search history-->
+  <div class="notification has-background-link-light" id="search-history">
+    <label class="label">Previously Searched:</label>
 
-    <!--Search section-->
-    <div class="field">
-      <label class="label">Search by breed:</label>
-      <div class="field has-addons">
-        <div class="control">
-          <input class="input" type="text" placeholder="Search Poodle, etc." id="breedNameInput"/>
-        </div>
-        <div class="control">
-          <a class="button is-info" id="searchButton"> Search </a>
-        </div>
+    <ul id="Previously-Searched">
+    </ul>
+  </div>
+  <section class="section">
+    <div class="container">
+    <div class="columns">
+      <div class="column is-4 is-offset-8">
+        <img src="image.png" alt="image of dogs smiling" width="500" height="333">
       </div>
     </div>
-    <div>
-      <h2 id="breedName"></h2>
-      <img id="dogImage" src="" alt="Dog Image" />
-      <p id="breedInfo"></p>
-    </div> 
-    <section>
-      <form>
-        <label for="dogcategory">Previously Searched:</label>
-      </form>
-    </section>
-    <section>
-      <figure>
-        <img
-          src="image.png"
-          alt="image of dogs smiling"
-          width="500"
-          height="333"
-        />
-        <figcaption>Find your new friend today!</figcaption>
-      </figure>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
+  </div>
+  </section>
+
+    <script src= "./assets/js/script.js"></script>
+</body>
 </html>

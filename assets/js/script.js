@@ -77,3 +77,4 @@ function handleBreedSearch(event) {
 }
 
 searchButton.on("click", handleBreedSearch);
+
