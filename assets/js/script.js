@@ -5,6 +5,9 @@ var dogImageElement = $("#dogImage");
 var breedInfoElement = $("#breedInfo");
 var saveButtonElement = $("#saveButton");
 var savedBreedsList = $("#Previously-Searched");
+var landingPageEl = $('#landing-img');
+var dogsResultEl = $('#dogs-result');
+var dogHeroEl = $('#dog-hero');
 
 function displayDogData(data, dogImages) {
   var breedInfo;
@@ -76,15 +79,18 @@ function linkForAPI() {
 }
 
 function handleBreedSearch(event) {
+  dogHeroEl.empty();
+  dogsResultEl.show()
   // Check if the Enter key was pressed or the button was clicked
   if (event.keyCode === 13 || event.which === 13 || event.type === 'click') {
     event.preventDefault();
     var breedName = linkForAPI();
     getAllDogInfo(breedName);
   }
+  console.log(dogHeroEl);
 }
 
-breedNameInput.on("keypress", handleBreedSearch);
+// breedNameInput.on("keypress", handleBreedSearch);
 searchButton.on("click", handleBreedSearch);
 
 function saveInLocalStorage() {
@@ -108,9 +114,11 @@ function savedLink (event) {
   handleBreedSearch(event);
 };
 
-saveButtonElement.on("click", function() {
+searchButton.on("click", function() {
   saveInLocalStorage();
   displayLocalStorage();
 });
 
 displayLocalStorage();
+
+dogsResultEl.hide();
