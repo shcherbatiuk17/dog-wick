@@ -14,58 +14,76 @@
   <body>
     <!--Top of page section-->
     <section class="hero is-small is-info">
-        <div class="hero-body">
-          <h1 class="title">
-            Dog Wick
-          </h1>
-          <p class="subtitle">
-            Find your new best friend!
-          </p>
-        </div>
+      <div class="hero-body">
+        <h1 class="title">Dog Wick</h1>
+      </div>
     </section>
     <!--Search Section-->
     <section class="section">
       <div class="container">
-          <div class="columns">
-              <div class="column is-4">
-    <!--Search Box-->
-    <div class="notification has-background-info is-size-3">
-      <form id="search-form">
-          <label class="label">Search by breed:</label>
-          <div class="field has-addons">
-              <div class="control">
-                  <input class="input" type="text" placeholder="Search Poodle, etc." id="breedNameInput">
-              </div>
-              <div class="control">
-                <a class="button is-info" id="searchButton"> Search </a>
-              </div>
-          </div>
-      </form>
-  </div>
-  <div>
-    <h2 id="breedName"></h2>
-    <img id="dogImage" src="" alt="Dog Image" />
-    <p id="breedInfo"></p>
-    <button id="saveButton" type="button">Save</button>
-  </div>
-  <!--Search history-->
-  <div class="notification has-background-link-light" id="search-history">
-    
-    <label class="label">Previously Searched:</label>
+        <div class="columns">
+          <div class="column is-4">
+            <!--Search Box-->
+            <div class="notification has-background-info is-size-3">
+              <form id="search-form">
+                <label class="label has-text-white">Search by breed:</label>
+                <div class="field has-addons">
+                  <div class="control">
+                    <input
+                      class="input"
+                      type="text"
+                      placeholder="Search Poodle, etc."
+                      id="breedNameInput"
+                    />
+                  </div>
+                  <div class="control">
+                    <a class="button is-success" id="searchButton"> Search </a>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!--Search history-->
+            <div
+              class="notification has-background-link-light"
+              id="search-history"
+            >
+              <label class="label">Previously Searched:</label>
 
-    <ul id="Previously-Searched">
-    </ul>
-  </div>
-  <section class="section">
-    <div class="container">
-    <div class="columns">
-      <div class="column is-4 is-offset-8">
-        <img src="image.png" alt="image of dogs smiling" width="500" height="333">
+              <ul id="Previously-Searched"></ul>
+            </div>
+          </div>
+
+          <!--Displays search results-->
+          <div class="column is-8">
+            <figure id="dogs-img">
+              <img src="image.png" alt="image of dogs smiling" />
+            </figure>
+            <figcaption>Let's meet your new best friend today!</figcaption>
+            <div class="notification is-warning" id="dogs-result">
+              <div class="columns">
+                <div class="column is-5">
+                  <img id="dogImage" src="" alt="Dog Image" />
+                </div>
+                <div class="column is-7">
+                  <h2 id="breedName"></h2>
+
+                  <div class="columns">
+                    <div class="column is-12">
+                      <p id="breedInfo"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  </section>
-  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-  <script src= "./assets/js/script.js"></script>
-</body>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

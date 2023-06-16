@@ -8,8 +8,28 @@
     align-items: stretch;
 }
 
-.title {
+.title,
+#search-form > .label {
     text-shadow: 2px 2px 2px black;
 }
 
+#dogs-img{
+    max-width: 100%;
+}
 
+figcaption {
+    text-align:center;
+    font-size: 30px;
+}
+
+#dogImage {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#breedName {
+    text-transform: capitalize;
+    font-size: 30px;
+    padding-bottom: 10px;
+}
