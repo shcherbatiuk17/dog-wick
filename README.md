@@ -11,6 +11,6 @@ This application was built using dog api, omdb api and bulma io css framework.
 <br/><br/>
 <br/><br/>
 
-![Homepage](assets\images\home.png)
+![Homepage](.\assets\images\home.png)
 
 **https://shcherbatiuk17.github.io/dog-wick/**

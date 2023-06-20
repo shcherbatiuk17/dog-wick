@@ -9,7 +9,25 @@ var landingPageEl = $('#landing-img');
 var dogsResultEl = $('#dogs-result');
 var dogHeroEl = $('#dog-hero');
 var cryingDogEl = $('#cryingDog').hide();
+var movies = $('#movies');
 
+
+function getMovie() {
+  $('#movies').empty();
+    // Request a random movie released in 1995
+    fetch("https://www.omdbapi.com/?i=tt1000000&apikey=73a93d98")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        // Display the random movie
+        var movie = data.Title;
+        $('#movies').append('<li>' + movie + '</li>');
+      })
+      .catch(function(error) {
+        console.log('Error:', error);
+      });
+}
 function displayDogData(data, dogImages) {
   var breedInfo;
   if (data.length > 0) {
@@ -118,8 +136,10 @@ searchButton.on("click", function(event) {
   saveInLocalStorage();
   displayLocalStorage();
   handleBreedSearch(event);
+  getMovie();
 });
 
 displayLocalStorage();
 
 dogsResultEl.hide();
+
