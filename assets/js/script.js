@@ -123,6 +123,3 @@ searchButton.on("click", function(event) {
 displayLocalStorage();
 
 dogsResultEl.hide();
-
-cryingDogEl.hide();
-
