@@ -8,6 +8,7 @@ var savedBreedsList = $("#Previously-Searched");
 var landingPageEl = $('#landing-img');
 var dogsResultEl = $('#dogs-result');
 var dogHeroEl = $('#dog-hero');
+var cryingDogEl = $('#cryingDog').hide();
 
 function displayDogData(data, dogImages) {
   var breedInfo;
@@ -16,7 +17,6 @@ function displayDogData(data, dogImages) {
   } else {
     breedInfo = "Breed information not found.";
   }
-  console.log(dogImages);
   dogImageElement.attr("src", dogImages[0]);
   breedNameElement.text(breedNameInput.val());
   breedInfoElement.text(breedInfo);
@@ -42,7 +42,6 @@ function getDogImg(breedName) {
     .then((response) => response.json())
     .then((data) => {
       var dogImages = data.message.slice(0, 3); // Get the first three images
-      console.log(dogImages);
       getBreedDescription(breedName, dogImages);
     })
     .catch((error) => {
@@ -55,15 +54,13 @@ function getAllDogInfo(breedName) {
     .then((response) => response.json())
     .then((data) => {
       var breedNames = Object.keys(data.message);
-      console.log(breedNames);
-      console.log(breedName);
-      breedName = breedName.split("-");
-      console.log(breedName);
-      if (breedNames.includes(breedName[0])) {
-        breedName = breedName.join("/");
+      breedName = breedName.split("-").reverse().join("/");
+      if (breedNames.includes(breedName)) {
         getDogImg(breedName);
       } else {
-        alert("Breed not found.");
+        breedInfoElement.text("Apologies, but this breed is either not yet in our database or does not exist.");
+        dogImageElement.hide();
+        cryingDogEl.show();
       }
     })
     .catch((error) => {
@@ -71,52 +68,56 @@ function getAllDogInfo(breedName) {
     });
 }
 
-function linkForAPI() {
-  var breedName = breedNameInput.val().toLowerCase();
-  breedName = breedName.split(" ").reverse().join("-");
-  console.log(breedName);
-  return breedName;
-}
-
 function handleBreedSearch(event) {
   dogHeroEl.empty();
-  dogsResultEl.show()
-  // Check if the Enter key was pressed or the button was clicked
-  if (event.keyCode === 13 || event.which === 13 || event.type === 'click') {
-    event.preventDefault();
-    var breedName = linkForAPI();
-    getAllDogInfo(breedName);
-  }
-  console.log(dogHeroEl);
+  dogsResultEl.show();
+  event.preventDefault();
+  var breedName = breedNameInput.val().toLowerCase().replace(/\s+/g, "-");
+  getAllDogInfo(breedName);
 }
-
-// breedNameInput.on("keypress", handleBreedSearch);
-searchButton.on("click", handleBreedSearch);
 
 function saveInLocalStorage() {
   var breedName = breedNameInput.val();
-  localStorage.setItem('breedName', breedName);
+  var savedBreeds = localStorage.getItem('savedBreeds');
+
+  if (savedBreeds) {
+    savedBreeds = JSON.parse(savedBreeds);
+  } else {
+    savedBreeds = [];
+  }
+
+  savedBreeds.push(breedName);
+  localStorage.setItem('savedBreeds', JSON.stringify(savedBreeds));
 }
 
 function displayLocalStorage() {
-  if (localStorage.getItem("breedName")) {
-    var savedBreedName = localStorage.getItem("breedName");
-    var breedLink = $("<a>").text(savedBreedName).attr("href", "#").on("click",savedLink)
-    var breedItem = $("<li>").append(breedLink);    
-    savedBreedsList.append(breedItem);
-    console.log(savedBreedName);
+  savedBreedsList.empty();
+  var savedBreeds = localStorage.getItem("savedBreeds");
+
+  if (savedBreeds) {
+    savedBreeds = JSON.parse(savedBreeds);
+
+    for (var i = 0; i < savedBreeds.length; i++) {
+      var breedName = savedBreeds[i];
+      var breedLink = $("<a>").text(breedName).attr("href", "#").on("click", savedLink);
+      var breedItem = $("<li>").append(breedLink);
+      savedBreedsList.append(breedItem);
+    }
   }
-}
-function savedLink (event) {
+  }
+
+
+function savedLink(event) {
   event.preventDefault();
   var breedName = $(this).text();
   breedNameInput.val(breedName);
   handleBreedSearch(event);
-};
+}
 
-searchButton.on("click", function() {
+searchButton.on("click", function(event) {
   saveInLocalStorage();
   displayLocalStorage();
+  handleBreedSearch(event);
 });
 
 displayLocalStorage();
