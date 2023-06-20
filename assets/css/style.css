@@ -27,7 +27,11 @@ figcaption {
     width: 100%;
     height: auto;
 }
-
+#cryingDog {
+    display: block;
+    width: 50%;
+    height: auto;
+}
 #breedName {
     text-transform: capitalize;
     font-size: 30px;
