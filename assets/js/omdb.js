@@ -13,6 +13,7 @@ var movies = $('#movies');
       .then(function(data) {
         // Display the random movie
         var movie = data.Title;
+        console.log(movie)
         $('#movies').append('<li>' + movie + '</li>');
       })
       .catch(function(error) {
